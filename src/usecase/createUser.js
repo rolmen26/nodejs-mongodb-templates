@@ -5,9 +5,9 @@ class CreateUser {
         this.userRepository = userRepository;
     }
 
-    execute(name, email) {
-        const user = new User(name, email);
-        return this.userRepository.save(user);
+    async execute(name, email) {
+        const user = new User({ name, email });
+        return await this.userRepository.save(user);
     }
 };
 
